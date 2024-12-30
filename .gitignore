@@ -2,5 +2,6 @@
 __init__.py
 
 .pytest_cache
+pytest.ini
 __pycache__
 conftest.py
