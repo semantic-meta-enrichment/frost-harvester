@@ -1,7 +1,7 @@
 import os
 import pytest
-from frost_harvester.translate import TranslationService
-from frost_harvester.models import Thing
+from frost_harvester.harvester.translate import TranslationService
+from frost_harvester.harvester.models import Thing
 
 
 @pytest.fixture

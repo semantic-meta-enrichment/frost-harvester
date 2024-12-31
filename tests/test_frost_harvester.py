@@ -1,7 +1,7 @@
 import pytest
 import responses
-from frost_harvester.harvester import FrostHarvester
-from frost_harvester.models import Thing
+from frost_harvester.harvester.harvester import FrostHarvester
+from frost_harvester.harvester.models import Thing
 
 
 @pytest.fixture

@@ -2,7 +2,7 @@ import time
 import logging
 import requests
 from typing import List
-from frost_harvester.models import Thing
+from frost_harvester.harvester.models import Thing
 
 
 class FrostHarvester:

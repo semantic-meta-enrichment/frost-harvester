@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "frost-harvester"
+version = "0.1.0"
+description = "FROST Harvester ingests sensor data in the SensorThingsAPI format, outputting it in the format desired by our teleclass_classifier"
+authors = ["Jeffrey Limnardy <jeffreylimnardy@yahoo.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "harvester" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+pydantic = "^2.10.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

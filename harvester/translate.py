@@ -1,14 +1,17 @@
 import requests
-from frost_harvester.models import Thing
+from frost_harvester.harvester.models import Thing
 
 
 class TranslationService:
+    """TranslationService takes in a LibreTranslate base URL endpoint and can translate incoming SensorThings API Thing Entity into english"""
+
     def __init__(self, url: str):
         self.url = url
         self.headers = {"Content-Type": "application/json"}
 
-    def translate_thing(self, translated_thing: Thing):
+    def translate_thing(self, translated_thing: Thing) -> Thing:
 
+        # translate thing
         translated_thing = translated_thing.model_copy(deep=True)
 
         translated_thing.name = self.translate_text(translated_thing.name)
@@ -24,8 +27,9 @@ class TranslationService:
 
             translated_thing.properties = translated_props
 
+        # translate each datastream of thing
         for idx, ds in enumerate(translated_thing.datastreams):
-
+            # translate sensors
             updated_sensor = ds.sensor.model_copy(update={
                 'name': self.translate_text(ds.sensor.name),
                 'description': self.translate_text(ds.sensor.description)
@@ -56,6 +60,7 @@ class TranslationService:
         return value
 
     def translate_text(self, text: str):
+        """Translates the input text into english by calling the LibreTranslate API Endpoint"""
         payload = {
             "q": text,
             "source": "de",

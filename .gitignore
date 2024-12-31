@@ -5,3 +5,8 @@ __init__.py
 pytest.ini
 __pycache__
 conftest.py
+
+.python-version
+poetry.lock
+
+dist/
